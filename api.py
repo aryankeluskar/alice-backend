@@ -1,11 +1,11 @@
-import json
-import re
+# import json
+# import re
 from fastapi import FastAPI, Response
-from fastapi.responses import FileResponse
+# from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
-from pymongo import MongoClient
-import requests
+# from fastapi.staticfiles import StaticFiles
+# from pymongo import MongoClient
+# import requests
 from scholarly import scholarly
 
 from dotenv import load_dotenv
@@ -24,10 +24,11 @@ app.add_middleware(
 
 @app.get("/")
 def read_root():
-    return {"message": "Hello, World!"}
+    return {"message": "Hello World! This is built to handle the backend of alice. Not for public use."}
 
 @app.get("/search")
 def search(query: str):
+    
     search_query = scholarly.search_pubs(query)
     res = next(search_query)
 
